@@ -1,0 +1,79 @@
+// Project tasks configuration. See https://zed.dev/docs/tasks for documentation.
+
+[
+    {
+        "label": "CMake: Configure (Debug)",
+        "command": "cmake",
+        "args": [
+            "-S",
+            "$ZED_WORKTREE_ROOT",
+            "-B",
+            "$ZED_WORKTREE_ROOT/build",
+            "-G",
+            "Ninja",
+            "-DCMAKE_BUILD_TYPE=Debug"
+        ],
+        "cwd": "$ZED_WORKTREE_ROOT",
+        "reveal": "always",
+        "hide": "on_success"
+    },
+
+    {
+        "label": "CMake: Configure (Release)",
+        "command": "cmake",
+        "args": [
+            "-S",
+            "$ZED_WORKTREE_ROOT",
+            "-B",
+            "$ZED_WORKTREE_ROOT/build",
+            "-G",
+            "Ninja",
+            "-DCMAKE_BUILD_TYPE=Release"
+        ],
+        "cwd": "$ZED_WORKTREE_ROOT",
+        "reveal": "always",
+        "hide": "on_success"
+    },
+
+    {
+        "label": "CTest: Run All",
+        "command": "ctest",
+        "args": [
+            "--test-dir",
+            "$ZED_WORKTREE_ROOT/build",
+            "--output-on-failure"
+        ],
+        "cwd": "$ZED_WORKTREE_ROOT/build",
+        "reveal": "always",
+        "hide": "never"
+    },
+
+    {
+        "label": "CTest: Run Current File",
+        "command": "ctest",
+        "args": [
+            "--test-dir",
+            "$ZED_WORKTREE_ROOT/build",
+            "-R",
+            "$ZED_STEM",
+            "--output-on-failure"
+        ],
+        "cwd": "$ZED_WORKTREE_ROOT/build",
+        "reveal": "always"
+    },
+
+    {
+        "label": "COCOMO Statistics",
+        "command": "scc",
+        "args": [
+            "--cocomo-project-type",
+            "embedded",
+            "--binary",
+            "--count-as cuh:cu",
+            "--avg-wage",
+            "56997"
+        ],
+        "cwd": "$ZED_WORKTREE_ROOT",
+        "reveal": "always"
+    }
+]

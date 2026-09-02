@@ -1,0 +1,39 @@
+{
+  "name": "CUDA Dev Environment",
+
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "USERNAME": "ubuntu",
+      "USER_UID": "1000",
+    },
+  },
+
+  // "runArgs": ["--gpus=all"], // Uncomment to run tests on NVIDIA GPU via DevContainer.
+
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/usr/local/cuda/bin",
+    "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64",
+  },
+
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+
+  "remoteUser": "ubuntu",
+  "containerUser": "ubuntu",
+
+  "customizations": {
+    "zed": {
+      "extensions": ["clangd", "neocmake"],
+    },
+    "vscode": {
+      "extensions": [
+        "nvidia.nsight-vscode-edition",
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+      },
+    },
+  },
+}

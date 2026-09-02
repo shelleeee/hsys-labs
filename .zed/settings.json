@@ -1,0 +1,8 @@
+{
+    "disable_ai": true,
+    "languages": {
+        "C++": {
+            "format_on_save": "on"
+        }
+    }
+}

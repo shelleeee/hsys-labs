@@ -1,0 +1,22 @@
+If:
+    PathMatch: .*\.(cu|cuh)$
+CompileFlags:
+    Compiler: /usr/bin/clang++
+    Add:
+        # - --cuda-path=/opt/cuda  # if you use Arch Linux
+        - --cuda-path=/usr/local/cuda # if you use Debian
+        - -Wno-unknown-cuda-version
+        - --cuda-gpu-arch=sm_75
+        - -xcuda
+        - -std=c++20
+    Remove:
+        - -forward-unknown-to-host-compiler
+        - --generate-code=*
+        - -arch=*
+        - -Xcompiler=*
+        - -rdc=*
+        - -Wno-deprecated-gpu-targets
+        - --expt-relaxed-constexpr
+        - -fdeps-format=*
+        - -static-global-template-stub=*
+        - --expt-relaxed-constexpr

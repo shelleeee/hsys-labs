@@ -1,0 +1,9 @@
+---
+Checks: >-
+    clang-diagnostic-*,
+    clang-analyzer-*,
+    cppcoreguidelines-*,
+    modernize-*,
+    -modernize-use-trailing-return-type,
+    -cppcoreguidelines-avoid-magic-numbers,
+    -cppcoreguidelines-pro-bounds-pointer-arithmetic
