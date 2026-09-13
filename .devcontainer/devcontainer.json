@@ -10,7 +10,7 @@
     },
   },
 
-  // "runArgs": ["--gpus=all"], // Uncomment to run tests on NVIDIA GPU via DevContainer.
+  "runArgs": ["--gpus=all"], // Uncomment to run tests on NVIDIA GPU via DevContainer.
 
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:/usr/local/cuda/bin",
